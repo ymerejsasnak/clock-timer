@@ -2,37 +2,39 @@ html, body {
     height: 96%;
     margin: 0 0;
     padding: 1% 0;
+    background: black;
 }
 
 #container {
-    height: 90%;
-    width: 90%;
-    background: lightblue;
+    height: 99%;
+    width: 70%;
+    background: lightgray;
     margin: 0 auto;
-    padding-top: 5%;
-    border: 1px solid blue;
+    padding-top: 4%;
+    border: 25px dashed black;
     border-radius: 5px;
-    box-shadow: 5px 5px 15px 5px black;
+    box-sizing: border-box;
 }
 
 #clock {
     margin: 0 auto;
-    width: 50%;
+    width: 80%;
     height: 40%;
-    border: 2px solid black;
-    border-radius: 5%/40%;
+    border: 10px double black;
+    border-radius: 5px;
     text-align: center;
-    background: tomato;
-    box-shadow: 3px 3px 10px 3px black;
+    background: ivory;
+    box-shadow: 3px 3px 5px 3px black;
+    box-sizing: border-box;
 }
 
 #date {
-    margin-top: 7%;
+    margin-top: 6%;
     font-size: 3em;
 }
 
 #time {
-    margin-top: 6%;
+    margin-top: 4%;
     font-size: 5em;
     font-family: courier, monospace;
 }
@@ -43,23 +45,25 @@ html, body {
 #timer {
     margin: 0 auto;
     margin-top: 5%;
-    width: 50%;
+    width: 80%;
     height: 40%;
-    border: 2px solid black;
-    border-radius: 5%/40%;
+    border: 10px double black;
+    border-radius: 5px;
     text-align: center;
     font-size: 5em;
     font-family: courier, monospace;
-    background: tomato;
-    box-shadow: 3px 3px 10px 3px black;
+    background: ivory;
+    box-shadow: 3px 3px 5px 3px black;
+    box-sizing: border-box;
 }
 
 #count {
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 button {
     width: 20%;
     height: 25px;
     border-radius: 10px;
+    box-shadow: 1px 1px 3px 3px black;
 }

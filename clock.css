@@ -1,0 +1,53 @@
+html, body {
+    height: 96%;
+    margin: 0 0;
+    padding: 1% 0;
+}
+
+#container {
+    height: 90%;
+    width: 90%;
+    background: lightblue;
+    margin: 0 auto;
+    padding-top: 5%;
+    border: 1px solid blue;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 5px black;
+}
+
+#clock {
+    margin: 0 auto;
+    width: 50%;
+    height: 40%;
+    border: 2px solid black;
+    border-radius: 5%/40%;
+    text-align: center;
+    background: tomato;
+    box-shadow: 3px 3px 10px 3px black;
+}
+
+#date {
+    margin-top: 5%;
+    font-size: 3em;
+}
+
+#time {
+    margin-top: 5%;
+    font-size: 7em;
+}
+
+
+
+
+#timer {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+    height: 40%;
+    border: 2px solid black;
+    border-radius: 5%/40%;
+    text-align: center;
+    font-size: 7em;
+    background: tomato;
+    box-shadow: 3px 3px 10px 3px black;
+}

@@ -20,12 +20,14 @@ $(function(){
             this.hours = this.dateObject.getHours();
             this.minutes = this.dateObject.getMinutes().pad(2);
             this.seconds = this.dateObject.getSeconds().pad(2);
-            if (this.hours > 12) {
-                this.hours = this.hours - 12;
+            if (this.hours > 11) {
                 this.ampm = 'PM';
             }
             else {
                 this.ampm = 'AM';
+            }
+            if (this.hours > 12) {
+                this.hours = this.hours - 12;
             }
         }
 
@@ -38,8 +40,34 @@ $(function(){
 
 
     function Timer() {
+        this.saved = 0;
+        
+        this.resetTimer = function() {
+            this.saved = 0;
+            timerDiv.text('00:00:00');      
+        }
 
+        this.startTimer = function() {
+            this.begin = Date.now();        
+        }
+
+        this.stopTimer = function() {
+            this.saved = this.now;
+        }
+
+        this.update = function() {
+            this.now = Date.now() - this.begin + this.saved;
+        }
+
+        this.show = function() {
+            var minutes = Math.floor(this.now / 1000 / 60);
+            var seconds = Math.floor((this.now % (60 * 1000)) / 1000);
+            var hundredths = Math.floor((this.now % (1000)) / 10);
+
+            timerDiv.text(`${minutes.pad(2)}:${seconds.pad(2)}:${hundredths.pad(2)}`);
+        }
     }
+
 
 
     //perfect little padding method stolen from stackoverflow
@@ -52,16 +80,17 @@ $(function(){
 
 
 
-
-
-
     var dateDiv = $('#date');
     var timeDiv = $('#time');
+    var timerDiv = $('#count');
 
     var clock = new Clock();
+    var timer = new Timer();
+    var timerIntervalID;
 
     clock.update();
     clock.show();
+
 
     //updates clock every second
     setInterval(function() {
@@ -70,6 +99,24 @@ $(function(){
     }, 1000);
 
 
+    //timer button events
+    $('#reset').on('click', function() {
+        clearInterval(timerIntervalID);
+        timer.resetTimer()
+    });
+
+    $('#start').on('click', function() {
+        timer.startTimer();
+        timerIntervalID = setInterval(function() {
+            timer.update();
+            timer.show();
+        }, 1);
+    });
+
+    $('#stop').on('click', function() {
+        clearInterval(timerIntervalID);
+        timer.stopTimer();
+    });
 
 
 });
